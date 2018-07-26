@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1 Jun, 2018 10:13:50 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernatetestapp.Tablelist" table="tablelist" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="tablename" type="string">
+            <column name="tablename" length="150" />
+        </property>
+        <set name="userrolefeaturedefinitions" table="userrolefeaturedefinition" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tableid" />
+            </key>
+            <one-to-many class="hibernatetestapp.Userrolefeaturedefinition" />
+        </set>
+        <set name="usermsthistories" table="usermsthistory" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tableid" />
+            </key>
+            <one-to-many class="hibernatetestapp.Usermsthistory" />
+        </set>
+        <set name="usermsts" table="usermst" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tableid" />
+            </key>
+            <one-to-many class="hibernatetestapp.Usermst" />
+        </set>
+        <set name="userroleses" table="userroles" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tableid" />
+            </key>
+            <one-to-many class="hibernatetestapp.Userroles" />
+        </set>
+    </class>
+</hibernate-mapping>

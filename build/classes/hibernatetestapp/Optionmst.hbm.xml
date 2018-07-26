@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1 Jun, 2018 10:13:50 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernatetestapp.Optionmst" table="optionmst" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="parentoptionid" type="java.lang.Integer">
+            <column name="parentoptionid" />
+        </property>
+        <property name="companyid" type="java.lang.Integer">
+            <column name="companyid" />
+        </property>
+        <property name="optiongroupkey" type="string">
+            <column name="optiongroupkey" length="25" />
+        </property>
+        <property name="optioncode" type="string">
+            <column name="optioncode" length="25" unique="true" />
+        </property>
+        <property name="optionname" type="string">
+            <column name="optionname" length="50" />
+        </property>
+        <property name="optiondescription" type="string">
+            <column name="optiondescription" length="500" />
+        </property>
+        <property name="optiondisplaytype" type="java.lang.Character">
+            <column name="optiondisplaytype" length="1" />
+        </property>
+        <property name="coremodulecode" type="string">
+            <column name="coremodulecode" length="25" />
+        </property>
+        <property name="parentmoduleid" type="java.lang.Integer">
+            <column name="parentmoduleid" />
+        </property>
+        <property name="parentmodulecode" type="string">
+            <column name="parentmodulecode" length="25" />
+        </property>
+        <property name="sortorder" type="java.lang.Integer">
+            <column name="sortorder" />
+        </property>
+        <property name="childgroupkey" type="string">
+            <column name="childgroupkey" length="25" />
+        </property>
+        <property name="isactive" type="java.lang.Character">
+            <column name="isactive" length="1" />
+        </property>
+        <property name="ishidden" type="java.lang.Character">
+            <column name="ishidden" length="1" />
+        </property>
+        <property name="ismenue" type="java.lang.Character">
+            <column name="ismenue" length="1" />
+        </property>
+        <property name="optionimagethumb" type="string">
+            <column name="optionimagethumb" length="50" />
+        </property>
+        <property name="optionimagelarge" type="string">
+            <column name="optionimagelarge" length="50" />
+        </property>
+        <property name="requiredchecklist" type="java.lang.Character">
+            <column name="requiredchecklist" length="1" />
+        </property>
+        <property name="validatedaycloseyn" type="java.lang.Character">
+            <column name="validatedaycloseyn" length="1" />
+        </property>
+        <property name="requiredemailprovisionyn" type="java.lang.Character">
+            <column name="requiredemailprovisionyn" length="1" />
+        </property>
+        <property name="allowalerts" type="java.lang.Character">
+            <column name="allowalerts" length="1" />
+        </property>
+        <property name="requiredsmsprovisionyn" type="java.lang.Character">
+            <column name="requiredsmsprovisionyn" length="1" />
+        </property>
+        <set name="usermsthistories" table="usermsthistory" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="optionid" />
+            </key>
+            <one-to-many class="hibernatetestapp.Usermsthistory" />
+        </set>
+        <set name="userrolefeaturedefinitions" table="userrolefeaturedefinition" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="optionid" />
+            </key>
+            <one-to-many class="hibernatetestapp.Userrolefeaturedefinition" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1 Jun, 2018 10:13:50 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernatetestapp.Businesssublevels" table="businesssublevels" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="optionid" type="java.lang.Integer">
+            <column name="optionid" />
+        </property>
+        <property name="tableid" type="java.lang.Integer">
+            <column name="tableid" />
+        </property>
+        <property name="businesssubleveloptionid" type="java.lang.Integer">
+            <column name="businesssubleveloptionid" />
+        </property>
+        <property name="code" type="string">
+            <column name="code" length="15" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="50" />
+        </property>
+        <property name="sortorder" type="big_decimal">
+            <column name="sortorder" precision="5" scale="1" />
+        </property>
+        <property name="parentbusinessleveloptionid" type="java.lang.Integer">
+            <column name="parentbusinessleveloptionid" />
+        </property>
+        <property name="isaloginlevel" type="java.lang.Character">
+            <column name="isaloginlevel" length="1" />
+        </property>
+        <property name="issystem" type="java.lang.Character">
+            <column name="issystem" length="1" />
+        </property>
+        <property name="levelno" type="java.lang.Integer">
+            <column name="levelno" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1 Jun, 2018 10:13:50 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernatetestapp.Userrolefeaturedefinition" table="userrolefeaturedefinition" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="optionmst" class="hibernatetestapp.Optionmst" fetch="select">
+            <column name="optionid" />
+        </many-to-one>
+        <many-to-one name="tablelist" class="hibernatetestapp.Tablelist" fetch="select">
+            <column name="tableid" />
+        </many-to-one>
+        <many-to-one name="userroles" class="hibernatetestapp.Userroles" fetch="select">
+            <column name="userroleid" />
+        </many-to-one>
+        <property name="allowaccessyn" type="java.lang.Character">
+            <column name="allowaccessyn" length="1" />
+        </property>
+        <property name="addrightsyn" type="java.lang.Character">
+            <column name="addrightsyn" length="1" />
+        </property>
+        <property name="editrightsyn" type="java.lang.Character">
+            <column name="editrightsyn" length="1" />
+        </property>
+        <property name="deleterightsyn" type="java.lang.Character">
+            <column name="deleterightsyn" length="1" />
+        </property>
+        <property name="viewrightsyn" type="java.lang.Character">
+            <column name="viewrightsyn" length="1" />
+        </property>
+        <property name="printrightsyn" type="java.lang.Character">
+            <column name="printrightsyn" length="1" />
+        </property>
+        <property name="lastmoduserid" type="java.lang.Integer">
+            <column name="lastmoduserid" />
+        </property>
+        <property name="lastmoddate" type="timestamp">
+            <column name="lastmoddate" length="29" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1 Jun, 2018 10:13:50 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernatetestapp.Userroles" table="userroles" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tablelist" class="hibernatetestapp.Tablelist" fetch="select">
+            <column name="tableid" />
+        </many-to-one>
+        <property name="code" type="string">
+            <column name="code" length="15" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="50" />
+        </property>
+        <property name="issystemrole" type="java.lang.Character">
+            <column name="issystemrole" length="1" />
+        </property>
+        <property name="isactive" type="java.lang.Character">
+            <column name="isactive" length="1" />
+        </property>
+        <property name="lastmoduserid" type="java.lang.Integer">
+            <column name="lastmoduserid" />
+        </property>
+        <property name="lastmoddate" type="timestamp">
+            <column name="lastmoddate" length="29" />
+        </property>
+        <set name="userrolefeaturedefinitions" table="userrolefeaturedefinition" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="userroleid" />
+            </key>
+            <one-to-many class="hibernatetestapp.Userrolefeaturedefinition" />
+        </set>
+    </class>
+</hibernate-mapping>

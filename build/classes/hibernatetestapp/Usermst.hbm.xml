@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1 Jun, 2018 10:13:50 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernatetestapp.Usermst" table="usermst" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tablelist" class="hibernatetestapp.Tablelist" fetch="select">
+            <column name="tableid" />
+        </many-to-one>
+        <property name="code" type="string">
+            <column name="code" length="15" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="50" />
+        </property>
+        <property name="password" type="serializable">
+            <column name="password" />
+        </property>
+        <property name="issystemuser" type="java.lang.Character">
+            <column name="issystemuser" length="1" />
+        </property>
+        <property name="loginstarttime" type="string">
+            <column name="loginstarttime" length="8" />
+        </property>
+        <property name="loginendtime" type="string">
+            <column name="loginendtime" length="8" />
+        </property>
+        <property name="languageid" type="java.lang.Integer">
+            <column name="languageid" />
+        </property>
+        <property name="isactive" type="java.lang.Character">
+            <column name="isactive" length="1" />
+        </property>
+        <property name="usertypebccid" type="java.lang.Integer">
+            <column name="usertypebccid" />
+        </property>
+        <property name="defaultemalid" type="string">
+            <column name="defaultemalid" length="50" />
+        </property>
+        <property name="defaultemalipassword" type="serializable">
+            <column name="defaultemalipassword" />
+        </property>
+        <property name="defaultemailsignature" type="string">
+            <column name="defaultemailsignature" length="250" />
+        </property>
+        <property name="defaultphoneno" type="string">
+            <column name="defaultphoneno" length="25" />
+        </property>
+        <property name="lastmoduserid" type="java.lang.Integer">
+            <column name="lastmoduserid" />
+        </property>
+        <property name="lastmoddate" type="timestamp">
+            <column name="lastmoddate" length="29" />
+        </property>
+        <set name="usermsthistories" table="usermsthistory" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="lastmoduserid" />
+            </key>
+            <one-to-many class="hibernatetestapp.Usermsthistory" />
+        </set>
+    </class>
+</hibernate-mapping>
